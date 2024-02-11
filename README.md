@@ -1,8 +1,11 @@
 # app.js
-# Gadgets Page
+# Gadgets Pag
+const express = require('express')
 
-Given two files `app.js` and `gadgets.html`, write an API in `app.js` file for the path `/gadgets` that sends the `gadgets.html` file as a response.
+const app = express()
 
-Export the express instance using default export syntax.
+app.get('/gadgets', (request, response) => {
+  response.sendFile('./gadgets.html', {root: __dirname})
+})
 
-<b>Use Common JS module syntax</b>.
+module.exports = app
